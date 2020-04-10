@@ -1,0 +1,9 @@
+body {background-color: #404040; color:#ebebeb;}
+button {background-color:#404040; color: black;height: 25px;width: auto;box-shadow:  0 0px 6px 0px #404040;border: 0px;color:#ebebeb;border-radius:10px;}
+input{background-color: #404040;border-color:#404040;border-style: solid;border-radius:10px;height: 20px ;width: 150px; color: white;}
+#InputArea {background-color: #404040;margin:-8px -8px 0px; padding: 40px 20px 20px;position: sticky;top: 0;z-index: 3;box-shadow:0px 0px 9px black;}
+.ToDoItem {background-color: #7a7a7a;margin:0px -8px;padding: 20px 20px;box-shadow:0px 0px 6px black;z-index: 1;}
+.CloseItem{position: absolute;right: 70px;z-index: 1;}
+.NewClockButton{position: absolute;right: 10px;z-index: 1;}
+.ClockButton{position: absolute;right: 10px;z-index: 0;}
+.ClockDiv{background-color: #7a7a7a;position: relative;top:10px;margin:10px -20px 0px; padding: 10px 20px;z-index: 2;}

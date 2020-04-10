@@ -1,0 +1,27 @@
+{
+  "build": {
+    "appId": "com.app.PomoTodo",
+    "productName": "PomoTodo"
+  },
+  "name": "PomoTodo",
+  "version": "1.0.1",
+  "description": "This is an App for my university profile",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "package": "electron-packager . PomoTodo --all",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder -mwl"
+  },
+  "repository": "https://github.com/DvIkero/APP",
+  "keywords": [
+    "PomoTodo"
+  ],
+  "author": "Chien",
+  "license": "none",
+  "devDependencies": {
+    "electron": "^8.2.0",
+    "electron-builder": "^22.4.1",
+    "electron-packager": "^14.2.1"
+  }
+}
