@@ -18,7 +18,7 @@ Then you can just:
 
 or build it (you can change the setting in package.json, or it will be built for windows, mac os and linux, please check 
 
-[here] (https://www.electron.build/)
+[here](https://www.electron.build/)
 
 :
 
