@@ -22,7 +22,7 @@
     "pack": "electron-builder --dir",
     "dist": "electron-builder -mwl "
   },
-  "repository": "https://github.com/DvIkero/APP",
+  "repository": "https://github.com/DvIkero/PomoTodo",
   "keywords": [
     "PomoTodo"
   ],
