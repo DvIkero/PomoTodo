@@ -1,4 +1,4 @@
-# PomoTODO
+# PomoToDo
 
 This is an simple app that build on electron which is used as part of the devoloper's university application profile.
 
