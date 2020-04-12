@@ -28,6 +28,7 @@ function NewItem(ItemCount) {
     var CreateNewItem = document.createElement("p");
     var NewItemCloseItem = document.createElement("button");
     var NewItemClock = document.createElement("button");
+    var NewItemContent = document.createTextNode(localStorage.getItem(ItemCount));
     NewItemCloseItem.innerHTML = "完成";
     NewItemClock.innerHTML =  "計時器";
     CreateNewItem.setAttribute("id", ItemCount);
@@ -60,50 +61,67 @@ function NewItem(ItemCount) {
             Input.setAttribute("min",0)
             Input.setAttribute("value","請輸入計時分鐘");
             Input.setAttribute("id", NewItemCloseItem.getAttribute("id").replace("Close", "") + "ClockInput");
+            Form.setAttribute("onSubmit", "return false")
+            Input.addEventListener("keypress", function(event){
+                if(event.keyCode === 13){
+                    StartTimer()
+                }
+            });
             Clock.setAttribute("id", NewItemCloseItem.getAttribute("id").replace("Close", "") + "ClockItem");
             Button.setAttribute("type","button");
             Button.setAttribute("class", "ClockButton")
             Button.innerHTML = "開始計時";
             Button.addEventListener("click", function(){
-                if (Timer){
-                    clearInterval(Timer)
-                    Button.innerHTML = "開始計時"
-                    Timer = null
-                }
-                else{
-                var InputTime = (document.getElementById(NewItemCloseItem.getAttribute("id").replace("Close", "") + "ClockInput").value)*60;
-                var DoingTime = parseInt(InputTime/60);
-                Timer = setInterval(function(){
-                    var second = InputTime - parseInt(InputTime/60)*60
-                    if (parseInt(InputTime/60)>0){
-                        Button.innerHTML = "剩下" + parseInt(InputTime/60) + "分" + second + "秒"
-                    }
-                    else{
-                        Button.innerHTML = "剩下" + second + "秒"
-                    }
-                    if(InputTime == 0){
-                        clearInterval(Timer);
-                        window.alert("時間到");
-                        Button.innerHTML = "開始計時"
-                        if (!!localStorage.getItem(NewItemCloseItem.getAttribute("id").replace("Close", "") + "DoingTime")){
-                            var LastDoingTime = localStorage.getItem(NewItemCloseItem.getAttribute("id").replace("Close", "")+ "DoingTime");
-                            var number = parseInt(DoingTime) + parseInt(LastDoingTime);
-                            localStorage.setItem(NewItemCloseItem.getAttribute("id").replace("Close", "") + "DoingTime", number)
-                        }
-                        else {
-                            localStorage.setItem(NewItemCloseItem.getAttribute("id").replace("Close", "")+"DoingTime", DoingTime)
-                        }
-                    window.location.reload()
-                    };
-                    InputTime -= 1
-                },1000);
-                }
+                StartTimer()
             });
             Target.appendChild(Div);
             Div.appendChild(Clock)
             Clock.appendChild(Form);
             Form.appendChild(Input);
             Form.appendChild(Button)
+            function StartTimer(){
+                if(!!document.getElementById(NewItemCloseItem.getAttribute("id").replace("Close", "") + "ClockInput")){
+                    if (Timer){
+                        clearInterval(Timer)
+                        Button.innerHTML = "開始計時"
+                        Timer = null
+                    }
+                    else{
+                        var InputTime = (document.getElementById(NewItemCloseItem.getAttribute("id").replace("Close", "") + "ClockInput").value)*60;
+                        var DoingTime = parseInt(InputTime/60);
+                        Timer = setInterval(function(){
+                            var second = InputTime - parseInt(InputTime/60)*60
+                            if (parseInt(InputTime/60)>0){
+                                Button.innerHTML = "剩下" + parseInt(InputTime/60) + "分" + second + "秒"
+                            }
+                            else{
+                                Button.innerHTML = "剩下" + second + "秒"
+                            }
+                            if(InputTime == 0){
+                                clearInterval(Timer);
+                                window.alert("時間到");
+                                Button.innerHTML = "開始計時"
+                                if (!!localStorage.getItem(NewItemCloseItem.getAttribute("id").replace("Close", "") + "DoingTime")){
+                                    var LastDoingTime = localStorage.getItem(NewItemCloseItem.getAttribute("id").replace("Close", "")+ "DoingTime");
+                                    var number = parseInt(DoingTime) + parseInt(LastDoingTime);
+                                    localStorage.setItem(NewItemCloseItem.getAttribute("id").replace("Close", "") + "DoingTime", number)
+                                }
+                                else {
+                                    localStorage.setItem(NewItemCloseItem.getAttribute("id").replace("Close", "")+"DoingTime", DoingTime)
+                                }
+                                CreateNewItem.removeChild(NewItemContent);
+                                CreateNewItem.removeChild(NewItemCloseItem);
+                                CreateNewItem.innerHTML =  "已進行" + localStorage.getItem(ItemCount + "DoingTime") + "分鐘的：";
+                                NewItemContent = document.createTextNode(localStorage.getItem(ItemCount));
+                                CreateNewItem.appendChild(NewItemContent);
+                                CreateNewItem.appendChild(NewItemCloseItem);
+                                CreateNewItem.appendChild(NewItemClock)
+                            };
+                            InputTime -= 1
+                        },1000);
+                    }
+                }
+                }
             }
         else {
             var parent = document.getElementById(NewItemClock.getAttribute("id").replace("Clock", ""));
@@ -111,9 +129,8 @@ function NewItem(ItemCount) {
             parent.removeChild(child);
         }
      });
-    var NewItemContent = document.createTextNode(localStorage.getItem(ItemCount));
     if (!!localStorage.getItem(ItemCount + "DoingTime")){
-        CreateNewItem.innerHTML =  "已進行" + localStorage.getItem(ItemCount + "DoingTime") + "分鐘的："
+        CreateNewItem.innerHTML =  "已進行" + localStorage.getItem(ItemCount + "DoingTime") + "分鐘的：";
     };
     CreateNewItem.appendChild(NewItemContent);
     CreateNewItem.appendChild(NewItemCloseItem);
@@ -148,3 +165,11 @@ function OnMouseOut(obj){
     obj.style.boxShadow = "0 0px 0px 0px"
 }
  
+//Enter event listneer
+function Enter(event) {
+    if (event.keyCode === 13) {
+      // Cancel the default action, if needed
+      // Trigger the button element with a click
+        Save()
+    }
+}

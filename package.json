@@ -1,7 +1,16 @@
 {
   "build": {
     "appId": "com.app.PomoTodo",
-    "productName": "PomoTodo"
+    "productName": "PomoTodo",
+    "directories": {
+      "output": "build"
+    },
+    "mac": {
+      "icon": "icon/PomoToDo.icns"
+    },
+    "win": {
+      "icon": "icon/PomoToDo.ico"
+    }
   },
   "name": "PomoTodo",
   "version": "1.0.1",
@@ -11,7 +20,7 @@
     "start": "electron .",
     "package": "electron-packager . PomoTodo --all",
     "pack": "electron-builder --dir",
-    "dist": "electron-builder -mwl"
+    "dist": "electron-builder -mwl "
   },
   "repository": "https://github.com/DvIkero/APP",
   "keywords": [
