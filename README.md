@@ -18,7 +18,7 @@ Then you can just:
 
 or build it (you can change the setting in package.json, or it will be built for windows, mac os and linux, please check 
 
-[here] https://www.electron.build/
+[here] (https://www.electron.build/)
 
 :
 
@@ -42,7 +42,7 @@ or build it (you can change the setting in package.json, or it will be built for
 
 或者您也可以將它進行包裝，包裝的相關參數您可以到package.json進行修改，若不修改，它將會被包裝為windows, mac os 以及 linux 三個版本
 
-[更多資訊]https://www.electron.build/
+[更多資訊](https://www.electron.build/)
 
 > npm run pack && npm run dist
 
