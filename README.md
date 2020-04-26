@@ -28,6 +28,10 @@
 > npm run pack && npm run dist
 > ```
 
+### 安裝檔
+
+Windows: https://www.jianguoyun.com/p/DbFzgGUQ9byvCBiu_JID
+
 ### 其他版本
 
 #### PomoTodo-r : https://github.com/DvIkero/PomoTodo-r
@@ -59,6 +63,10 @@ or build it (you can change the setting in package.json, or it will be built for
 > ```
 > npm run pack && npm run dist
 > ```
+
+### Installation
+
+Windows: https://www.jianguoyun.com/p/DbFzgGUQ9byvCBiu_JID
 
 ### Other version:
 
