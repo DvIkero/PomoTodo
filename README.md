@@ -1,5 +1,7 @@
 # PomoTodo
 
+## 中文
+
 這是一個簡單的，透過Electron建立的APP，主要是為了開發者的大學申請所用。
 
 開發者的目標是實現一個結合蕃茄鐘和待辦事項，並且易於使用的APP，但目前為止，1.0.1版本離這個目標還很遠。
@@ -8,17 +10,29 @@
 
 如果您想要使用它，請確保您已經安裝了Npm套件管理器並輸入以下指令：
 
+> ```
 > cd {location you chose} && npm install
+> ```
 
 然後您就可以簡單的啟動它：
 
+> ```
 > npm start
+> ```
 
 或者您也可以將它進行包裝，包裝的相關參數您可以到package.json進行修改，若不修改，它將會被包裝為windows, mac os 以及 linux 三個版本:
 
 [更多資訊](https://www.electron.build/)
 
+> ```
 > npm run pack && npm run dist
+> ```
+
+### 其他版本
+
+#### PomoTodo-r : https://github.com/DvIkero/PomoTodo-r
+
+## English
 
 This is an simple app that build on electron which is used as part of the devoloper's university application profile.
 
@@ -30,14 +44,22 @@ Hope every user can enjoy it.
 
 If you want to use it, please make sure you have installed Npm and then:
 
+> ```
 > cd {location you chose} && npm install
+> ```
 
 Then you can just:
 
+> ```
 > npm start
+> ```
 
 or build it (you can change the setting in package.json, or it will be built for windows, mac os and linux, please check [here](https://www.electron.build/):
 
+> ```
 > npm run pack && npm run dist
+> ```
 
+### Other version:
 
+#### PomoTodo-r : https://github.com/DvIkero/PomoTodo-r
